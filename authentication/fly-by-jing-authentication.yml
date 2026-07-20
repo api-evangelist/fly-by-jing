@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  Live OIDC/OAuth discovery document fetched from
+  https://flybyjing.com/.well-known/openid-configuration (Shopify Customer
+  Account API bound to the Fly By Jing store domain).
+summary: >-
+  Fly By Jing's storefront (Shopify) exposes a Customer Account API secured with
+  OAuth 2.0 / OpenID Connect. Authorization Code grant with PKCE (S256) is the
+  primary flow; refresh_token and the JWT-bearer grant are also supported.
+schemes:
+- name: shopify_customer_account_oidc
+  type: openIdConnect
+  openIdConnectUrl: https://flybyjing.com/.well-known/openid-configuration
+  issuer: https://shopify.com/authentication/6585155653
+  authorization_endpoint: https://account.flybyjing.com/authentication/oauth/authorize
+  token_endpoint: https://account.flybyjing.com/authentication/oauth/token
+  end_session_endpoint: https://account.flybyjing.com/authentication/logout
+  jwks_uri: https://account.flybyjing.com/authentication/.well-known/jwks.json
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  - 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+  response_types_supported:
+  - code
+  code_challenge_methods_supported:
+  - S256
+  token_endpoint_auth_methods_supported:
+  - client_secret_basic
+  id_token_signing_alg_values_supported:
+  - RS256
+  subject_types_supported:
+  - public
+  scopes_supported:
+  - openid
+  - email
+  - 'customer-account-api:full'
+  - 'customer-account-mcp-api:full'
+notes: >-
+  Endpoints and issuer are Shopify-operated; the store's own subdomain
+  (account.flybyjing.com) fronts the authorize/token/logout endpoints. See
+  scopes/fly-by-jing-scopes.yml for the scope reference.
