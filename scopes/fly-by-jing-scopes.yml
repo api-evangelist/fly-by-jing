@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: searched
+docs: https://flybyjing.com/.well-known/openid-configuration
+source: >-
+  scopes_supported advertised in the live OIDC discovery document for the Fly By
+  Jing storefront (Shopify Customer Account API).
+flow: authorization_code
+authorization_endpoint: https://account.flybyjing.com/authentication/oauth/authorize
+token_endpoint: https://account.flybyjing.com/authentication/oauth/token
+scopes:
+- name: openid
+  description: OpenID Connect sign-in; returns an ID token identifying the customer.
+- name: email
+  description: Access to the authenticated customer's email address and email_verified claim.
+- name: 'customer-account-api:full'
+  description: >-
+    Full access to the Shopify Customer Account API for the signed-in customer
+    (orders, profile, addresses, subscriptions, and other account data).
+- name: 'customer-account-mcp-api:full'
+  description: >-
+    Full access to the Customer Account MCP API surface, exposing the customer's
+    account data to MCP-based agents on behalf of the signed-in customer.
+notes: >-
+  Scopes are defined and enforced by Shopify's Customer Account platform, not by
+  Fly By Jing directly. This is the storefront-facing customer identity surface;
+  there is no separate first-party OAuth server.

@@ -1,0 +1,27 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  Probed /.well-known/ discovery paths on the flybyjing.com storefront host.
+  Fly By Jing runs on Shopify; the storefront exposes Shopify Customer Account
+  API OAuth2/OIDC discovery documents live at the store's own domain.
+hosts:
+  - host: https://flybyjing.com
+    documents:
+      - path: /.well-known/security.txt          # RFC 9116
+        status: 404
+      - path: /.well-known/openid-configuration  # OIDC discovery (Shopify Customer Account API)
+        status: 200
+        file: fly-by-jing-openid-configuration.json
+      - path: /.well-known/oauth-authorization-server  # RFC 8414 (identical payload to OIDC doc)
+        status: 200
+        file: fly-by-jing-oauth-authorization-server.json
+      - path: /.well-known/api-catalog           # RFC 9727
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+notes: >-
+  The OIDC/OAuth metadata is Shopify-provided (issuer
+  https://shopify.com/authentication/6585155653), with authorization/token
+  endpoints on account.flybyjing.com. scopes_supported advertises
+  customer-account-api:full and customer-account-mcp-api:full, indicating a
+  live Customer Account API and an MCP surface bound to the store domain.
