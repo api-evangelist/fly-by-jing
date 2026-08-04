@@ -1,6 +1,7 @@
 generated: '2026-07-19'
 method: searched
-status: live
+status: published
+status_raw: live
 source: >-
   Live hosted MCP server probed at https://flybyjing.com/api/mcp (JSON-RPC
   initialize + tools/list). This is the Shopify Storefront MCP server bound to
