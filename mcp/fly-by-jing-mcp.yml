@@ -2,10 +2,9 @@ generated: '2026-07-19'
 method: searched
 status: published
 status_raw: live
-source: >-
-  Live hosted MCP server probed at https://flybyjing.com/api/mcp (JSON-RPC
-  initialize + tools/list). This is the Shopify Storefront MCP server bound to
-  the Fly By Jing store domain, not a bespoke first-party build.
+source: Live hosted MCP server probed at https://flybyjing.com/api/mcp (JSON-RPC initialize + tools/list).
+  This is the Shopify Storefront MCP server bound to the Fly By Jing store domain, not a bespoke first-party
+  build.
 server:
   name: storefront-renderer
   version: 0.1.0
@@ -24,27 +23,26 @@ server:
     logging: true
 tools:
 - name: search_catalog
-  description: >-
-    Search for products from the online store (natural-language queries and/or
-    filters). Results paginated; conforms to the UCP catalog search capability
-    (dev.ucp.shopping.catalog.search).
+  description: Search for products from the online store (natural-language queries and/or filters). Results
+    paginated; conforms to the UCP catalog search capability (dev.ucp.shopping.catalog.search).
 - name: get_cart
-  description: >-
-    Get the cart including line items, shipping options, discount info, and the
-    checkout URL for a given cart.
+  description: Get the cart including line items, shipping options, discount info, and the checkout URL
+    for a given cart.
 - name: update_cart
-  description: >-
-    Perform updates to a cart, including adding/removing/updating line items and
-    buyer information.
+  description: Perform updates to a cart, including adding/removing/updating line items and buyer information.
 - name: search_shop_policies_and_faqs
   description: Retrieve facts about the store's policies, products, or services.
 - name: get_product_details
-  description: >-
-    Look up a product by ID; pass the 'options' parameter to select a specific
-    variant.
-notes: >-
-  A separate Customer Account MCP surface is advertised in the domain's OIDC
-  discovery document via the customer-account-mcp-api:full scope (see
-  scopes/fly-by-jing-scopes.yml and well-known/). The storefront MCP above is
-  unauthenticated commerce/agent shopping; the customer-account MCP requires the
-  Shopify Customer Account OAuth flow.
+  description: Look up a product by ID; pass the 'options' parameter to select a specific variant.
+notes: A separate Customer Account MCP surface is advertised in the domain's OIDC discovery document via
+  the customer-account-mcp-api:full scope (see scopes/fly-by-jing-scopes.yml and well-known/). The storefront
+  MCP above is unauthenticated commerce/agent shopping; the customer-account MCP requires the Shopify
+  Customer Account OAuth flow.
+deployment:
+  mode: remote
+  endpoint: https://flybyjing.com/api/mcp
+  verified: probed
+  probe: live
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census
