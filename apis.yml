@@ -74,7 +74,6 @@ apis:
     Account API secured with OAuth 2.0 / OpenID Connect. Both are Shopify-operated
     but bound to the Fly By Jing store domain.
   humanURL: https://flybyjing.com/
-  baseURL: https://flybyjing.com
   properties:
   - type: MCPServer
     url: mcp/fly-by-jing-mcp.yml
@@ -84,6 +83,9 @@ apis:
     url: scopes/fly-by-jing-scopes.yml
   - type: WellKnown
     url: well-known/fly-by-jing-well-known.yml
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: storefront
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
