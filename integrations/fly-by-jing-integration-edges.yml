@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/fly-by-jing/integrations
+- https://n8n.io/integrations/fly-by-jing/
+- https://composio.dev/toolkits/fly-by-jing
+- https://monid.ai/tools/fly-by-jing
+checked:
+- https://composio.dev/toolkits/fly-by-jing
+- https://monid.ai/tools/fly-by-jing
+- https://n8n.io/integrations/fly-by-jing/
+- https://zapier.com/apps/fly-by-jing/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
